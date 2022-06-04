@@ -8,6 +8,8 @@
 
 ### API url : `https://nitro-gift.nankaji-dev.tk/api/nitro-checker/{code}`
 
+### METHOD SUPPORT : `GET`
+
 Example ajax code (jQuery) :
 
 ```javascript
