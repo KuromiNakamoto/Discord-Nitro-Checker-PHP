@@ -17,7 +17,7 @@ $.get(`https://nitro-gift.nankaji-dev.tk/api/nitro-checker/zjnOmBuYgXcuGPyU`, fu
     if (status == "success") {
       if (data.status == 404) {
         // Invalid
-      } else if (data.status == 427) {
+      } else if (data.status == 429) {
         // Cooldown
       } else if (data.status == 200) {
         if (!data.claimed) {
@@ -25,11 +25,45 @@ $.get(`https://nitro-gift.nankaji-dev.tk/api/nitro-checker/zjnOmBuYgXcuGPyU`, fu
         } else {
           // Invalid and Unavailable
         }
+      } else {
+        // Unknown
       }
     } else {
       // Error
     }
 });
+```
+
+Example curl (PHP) :
+
+```php
+$ch = curl_init();
+
+curl_setopt_array($ch, array(
+    CURLOPT_RETURNTRANSFER => 1,
+    CURLOPT_URL => "https://nitro-gift.nankaji-dev.tk/api/nitro-checker/zjnOmBuYgXcuGPyU",
+    CURLOPT_SSL_VERIFYPEER => false
+));
+
+$response = curl_exec($ch);
+
+$result = json_decode($response, true);
+
+curl_close($ch);
+
+if ($result['status'] == 200) {
+    if (!$result['claimed']) {
+        // Valid and available
+    } else {
+        // Valid and unavailable
+    }
+} else if ($result['status'] == 404) {
+    // Invalid
+} else if ($result['status'] == 429) {
+    // Cooldown
+} else {
+    // Unknown
+}
 ```
 
 ## Example JSON Response :
