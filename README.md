@@ -41,3 +41,68 @@ Status code : 200 (Available)
     "claimed": false
 }
 ```
+
+Status code : 200 (Used)
+
+```json
+{
+    "message": "Code is valid but this code is being used !",
+    "status": 200,
+    "claimed": true
+}
+```
+
+Status code : 404 (Invalid)
+
+```json
+{
+    "message": "Code is invalid !",
+    "status": 404
+}
+```
+
+Status code : 0 (Missing Information)
+
+```json
+{
+    "message": "MISSING_INFORMATION",
+    "status": 0
+}
+```
+
+Status code : 100 (Minimum Length)
+
+```json
+{
+    "message": "Value must be more than 16 characters !",
+    "status": 100
+}
+```
+
+Status code : 101 (Maximum Length)
+
+```json
+{
+    "message": "Value must be less than 30 characters !",
+    "status": 101
+}
+```
+
+Status code : 429 (Cooldown)
+
+```json
+{
+    "message": "Wait for cooldown 15(s)",
+    "status": 429,
+    "countdown": 15
+}
+```
+
+Status code : -1 (Unknown)
+
+```json
+{
+    "message": "Unknown status",
+    "status": -1
+}
+```
