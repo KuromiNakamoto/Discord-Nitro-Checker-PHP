@@ -29,3 +29,15 @@ $.get(`https://nitro-gift.nankaji-dev.tk/api/nitro-checker/zjnOmBuYgXcuGPyU`, fu
     }
 });
 ```
+
+## Example JSON Response :
+
+Status code : 200 (Available)
+
+```json
+{
+    "message": "Code is valid !",
+    "status": 200,
+    "claimed": false
+}
+```
