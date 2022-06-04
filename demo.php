@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Discord Nitro Checker API</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Api nitro checker by Kuromi Nakamoto.">
+        <meta name="keywords" content="nitro, discord nitro, nitro random, nitro code, discord, random nitro, nitro link, nitro free, free nitro">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap">
+        <style>
+            body {
+                font-family:'Baloo 2', cursive;
+            }
+        </style>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+    <body>
+        <div class="mt-5 container">
+            <h1 class="text-center">API Test</h1>
+            
+            <div class="form-group">
+                <label>Type your nitro code here :</label>
+                <div id="alert"></div>
+                <div class="form-row">
+                    <div class="col-lg-10 mb-2">
+                        <input type="text" class="form-control" placeholder="Example : gE2dQhv5TUdh8JJb4mKF62hv" id="nitro_code">
+                    </div>
+                    <div class="col-lg-2 mb-2">
+                        <button class="btn btn-success w-100" onclick="apicheck('#nitro_code', this);">Check</button>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-center">Discord Nitro Checker API by Kuromi Nakamoto.</p>
+        </div>
+        <script>
+            function apicheck(nitro_val, btn) {
+                let code = $(nitro_val).val();
+                
+                $(btn).prop('disabled', !0).html("Checking");
+                
+                $.get(`./checker.php?code=${code}`, function (data, status) {
+                    $('#alert').html("");
+                    
+                    setTimeout(function () {
+                        if (status == "success") {
+                            if (data.status != 200) {
+                                $('#alert').html(`<div class="alert alert-danger">${data.message}</div>`);
+                            } else {
+                                if (!data.claimed) {
+                                    $('#alert').html(`<div class="alert alert-success">${data.message}</div>`);
+                                } else {
+                                    $('#alert').html(`<div class="alert alert-warning">${data.message}</div>`);
+                                }
+                            }
+                        } else {
+                            $('#alert').html(`<div class="alert alert-danger">Error</div>`);
+                        }
+                        
+                        $(btn).prop('disabled', !1).html("Check");
+                    }, 200);
+                });
+            }
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+    </body>
+</html>
