@@ -13,7 +13,7 @@
 Example ajax code (jQuery) :
 
 ```javascript
-$.get(`https://nitro-gift.nankaji-dev.tk/api/nitro-checker/zjnOmBuYgXcuGPyU`, function (data, status) {
+$.get(`https://nitro-gift.nankaji-dev.tk/api/nitro-checker/${nitro_code}`, function (data, status) {
     if (status == "success") {
       if (data.status == 404) {
         // Invalid
@@ -41,7 +41,7 @@ $ch = curl_init();
 
 curl_setopt_array($ch, array(
     CURLOPT_RETURNTRANSFER => 1,
-    CURLOPT_URL => "https://nitro-gift.nankaji-dev.tk/api/nitro-checker/zjnOmBuYgXcuGPyU",
+    CURLOPT_URL => "https://nitro-gift.nankaji-dev.tk/api/nitro-checker/$nitro_code",
     CURLOPT_SSL_VERIFYPEER => false
 ));
 
