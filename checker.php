@@ -28,7 +28,15 @@ if (isset($_GET['code']) && !empty($_GET['code'])) {
         curl_close($curl);
         
         if ($http_code == 200 || $http_code == 201) {
-            echo json_encode(array("message" => $result['uses']?"Code is valid but this code is being used !":"Code is valid !", "status" => 200, "claimed" => $result['uses']?true:false), JSON_PRETTY_PRINT);
+            if ($result['promotion'] !== null) {
+                $prefix = "[NITRO PROMO]";
+                $nitro_type = "promo";
+            } else {
+                $prefix = "[NITRO GIFT]";
+                $nitro_type = "gift";
+            }
+            
+            echo json_encode(array("message" => $result['uses']?$prefix." Code is valid but this code is being used !":$prefix." Code is valid !", "status" => 200, "claimed" => $result['uses']?true:false, "nitro_type" => $nitro_type), JSON_PRETTY_PRINT);
         } else if ($http_code == 404) {
             echo json_encode(array("message" => "Code is invalid !", "status" => 404), JSON_PRETTY_PRINT);
         } else if ($http_code == 429) {
