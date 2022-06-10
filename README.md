@@ -10,6 +10,8 @@
 
 ### METHOD SUPPORT : `GET`
 
+### Version : 0.1.1
+
 Example ajax code (jQuery) :
 
 ```javascript
