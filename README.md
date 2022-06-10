@@ -72,9 +72,10 @@ Status code : 200 (Available)
 
 ```json
 {
-    "message": "Code is valid !",
+    "message": "[NITRO GIFT/PROMO] Code is valid !",
     "status": 200,
-    "claimed": false
+    "claimed": false,
+    "nitro_type": "gift/promo"
 }
 ```
 
@@ -82,9 +83,10 @@ Status code : 200 (Used)
 
 ```json
 {
-    "message": "Code is valid but this code is being used !",
+    "message": "[NITRO GIFT/PROMO] Code is valid but this code is being used !",
     "status": 200,
-    "claimed": true
+    "claimed": true,
+    "nitro_type": "gift/promo"
 }
 ```
 
