@@ -1,5 +1,7 @@
 # PHP - Discord Nitro Checker API
 
+### Note : Use checker.php file to use because this api url is expired. (22/06/2022)
+
 ### Documention : [https://nitro-gift.nankaji-dev.tk/](https://nitro-gift.nankaji-dev.tk/)
 
 ### Demo : [https://nitro-gift.nankaji-dev.tk/demo.php](https://nitro-gift.nankaji-dev.tk/demo.php)
