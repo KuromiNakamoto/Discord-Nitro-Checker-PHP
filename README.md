@@ -151,6 +151,6 @@ Status code : -1 (Unknown)
 
 ## Contact me
 
-Facebook : [`Facebook`](https://www.facebook.com/Nankaji.Minato/)
+Facebook : [`Facebook`](https://www.facebook.com/Kuromi.Dev/)
 
 Email : `kuromi.dev@tokovn.com`
